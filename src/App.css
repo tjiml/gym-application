@@ -18,8 +18,14 @@
 
 /* navbar css */
 
-nav {
-  background-color: black;
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-family: rubik;
+  padding-top: 10px;
+  background: black;
 }
 
 .nav-logo {
@@ -35,6 +41,24 @@ nav {
   color: darkred;
 }
 
+.menu-icon {
+  display: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  margin: 0 20px 0 0;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.x-nav {
+  opacity: 0;
+}
+
 ul li {
   color: white;
   font-size: 16px;
@@ -43,28 +67,56 @@ ul li {
   font-family: poppins;
 }
 
+@media screen and (max-width: 746px) {
 
-ul li:hover {
-  color: darkred;
-}
+  .x-nav {
+      opacity: 1;
+      padding: 26px;
+  }
 
-.navbar-toggler span {
-  color: white;
-  font-size: 35px;
-}
+  .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 25%;
+      position: absolute;
+      top: -100%;
+      transition: all 1s ease;
+  }   
 
-ul {
-  list-style-type: none;
-}
+  .menu-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: all 1s ease;
+      font-size: 28px;
+      transform: translate(-100%, 60%);
+      color: white;
+  }
 
-@media screen and (max-width: 980px) {
-  ul {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
+  .menu-icon:hover {
+      cursor: pointer;
+  }
+
+  .nav-menu.active {
+      left: 0;
+      top: 0;
+      transition: all 0.5s ease;
+      position: fixed;
+      background-color: black;
+      z-index: 1;
+  }
+
+  .nav-menu li {
+      margin: 10px 0;
+      display: flex;
+      justify-content: end;
+      align-items: end;
   }
 }
+
+
 
 
 
@@ -131,7 +183,6 @@ ul {
   font-family: poppins;
   text-transform: capitalize;
   letter-spacing: -1px;
-  
 }
 
 .search-bar input {
@@ -234,6 +285,7 @@ ul {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 30px 0 50px 0;
 }
 
 .pagination {
@@ -244,9 +296,8 @@ ul {
 }
 
 @media screen and (max-width: 430px) {
-  .paginate {
-    display: flex;
-    flex-wrap: wrap;
+
+  .pagination {
     width: 100%;
   }
 }
